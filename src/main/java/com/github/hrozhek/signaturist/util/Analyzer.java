@@ -1,4 +1,4 @@
-package com.github.hrozhek.graduation.util;
+package com.github.hrozhek.signaturist.util;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -106,7 +106,7 @@ public class Analyzer {
         // Sample the pixels.
         for (double x = px * scaledSize - sampleSize; x < px * scaledSize + sampleSize; x++) {
             for (double y = py * scaledSize - sampleSize; y < py * scaledSize + sampleSize; y++) {
-                Color pix = new Color(i.getRGB(new Double(x).intValue(), new Double(y).intValue()));
+                Color pix = new Color(i.getRGB(Double.valueOf(x).intValue(), Double.valueOf(y).intValue()));
                 pixel = new double[] { pix.getBlue(), pix.getGreen(), pix.getRed() };
                 accum[0] += pixel[0];
                 accum[1] += pixel[1];
@@ -141,7 +141,7 @@ public class Analyzer {
                                   boolean higherQuality) {
         int type = (img.getTransparency() == Transparency.OPAQUE) ? BufferedImage.TYPE_INT_RGB
                 : BufferedImage.TYPE_INT_ARGB;
-        BufferedImage ret = (BufferedImage) img;
+        BufferedImage ret = img;
         int w, h;
         if (higherQuality) {
             // Use multi-step technique: start with original size, then

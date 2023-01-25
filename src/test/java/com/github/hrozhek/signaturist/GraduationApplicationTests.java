@@ -1,4 +1,4 @@
-package com.github.hrozhek.graduation;
+package com.github.hrozhek.signaturist;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

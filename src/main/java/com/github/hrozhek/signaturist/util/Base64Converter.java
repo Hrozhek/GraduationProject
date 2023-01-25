@@ -1,4 +1,4 @@
-package com.github.hrozhek.graduation.util;
+package com.github.hrozhek.signaturist.util;
 
 import lombok.SneakyThrows;
 

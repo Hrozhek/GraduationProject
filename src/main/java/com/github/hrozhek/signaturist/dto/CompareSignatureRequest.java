@@ -1,4 +1,4 @@
-package com.github.hrozhek.graduation.dto;
+package com.github.hrozhek.signaturist.dto;
 
 import lombok.Data;
 

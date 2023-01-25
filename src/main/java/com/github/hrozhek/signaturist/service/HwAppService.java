@@ -1,7 +1,7 @@
-package com.github.hrozhek.graduation.service;
+package com.github.hrozhek.signaturist.service;
 
-import com.github.hrozhek.graduation.util.Analyzer;
-import com.github.hrozhek.graduation.util.Base64Converter;
+import com.github.hrozhek.signaturist.util.Analyzer;
+import com.github.hrozhek.signaturist.util.Base64Converter;
 import org.springframework.stereotype.Service;
 
 import java.awt.image.BufferedImage;

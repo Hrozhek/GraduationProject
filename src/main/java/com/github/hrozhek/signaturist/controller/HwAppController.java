@@ -1,6 +1,6 @@
-package com.github.hrozhek.graduation.controller;
+package com.github.hrozhek.signaturist.controller;
 
-import com.github.hrozhek.graduation.dto.CompareSignatureRequest;
+import com.github.hrozhek.signaturist.dto.CompareSignatureRequest;
 import org.springframework.http.ResponseEntity;
 
 public interface HwAppController {

@@ -14,10 +14,10 @@
 
     <!--    TODO - rename the project but after creating modules-->
     <groupId>com.github.hrozhek</groupId>
-    <artifactId>GraduationProject</artifactId>
+    <artifactId>Signaturist</artifactId>
     <version>${project.version}</version>
     <packaging>war</packaging>
-    <name>graduation</name>
+    <name>signaturist</name>
     <description>Graduation project (in mock condition)</description>
 
     <properties>

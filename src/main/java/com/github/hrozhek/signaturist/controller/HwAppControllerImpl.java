@@ -1,7 +1,7 @@
-package com.github.hrozhek.graduation.controller;
+package com.github.hrozhek.signaturist.controller;
 
-import com.github.hrozhek.graduation.dto.CompareSignatureRequest;
-import com.github.hrozhek.graduation.service.HwAppService;
+import com.github.hrozhek.signaturist.dto.CompareSignatureRequest;
+import com.github.hrozhek.signaturist.service.HwAppService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

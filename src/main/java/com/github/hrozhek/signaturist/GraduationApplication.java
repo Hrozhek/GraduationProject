@@ -1,4 +1,4 @@
-package com.github.hrozhek.graduation;
+package com.github.hrozhek.signaturist;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
