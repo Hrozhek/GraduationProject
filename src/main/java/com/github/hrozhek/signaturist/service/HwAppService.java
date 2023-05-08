@@ -29,7 +29,7 @@ public class HwAppService {
 
     private double mockCompare(BufferedImage ref, BufferedImage presented) {
         var distance = analyzer.compare(ref, presented); //closer to 0 is closer to 100%
-        double max = Math.max(currentZeroThreshold.updateAndGet(val -> updateFunction(val, distance)),
+        double max = Math.max(currentZeroThreshold.updateAndGet(val -> updateFunction(val, distance)), //todo it's not side effect free
                 distance); //avoid negative numbers
         return ((max - distance) / max) * 100.0;
     }
