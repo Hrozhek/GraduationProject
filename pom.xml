@@ -4,28 +4,33 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!--    TODO - some common project should be a parent instead of this crunch-->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.0.2</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
-
-    <!--    TODO - rename the project but after creating modules-->
-    <groupId>com.github.hrozhek</groupId>
-    <artifactId>signist-parent</artifactId>
-    <version>${project.version}</version>
-    <packaging>war</packaging>
-    <name>Signaturist</name>
-    <description>Graduation project (in mock condition)</description>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.version>0.1-SNAPSHOT</project.version>
+<!--        <project.version>0.1-SNAPSHOT</project.version>-->
+        <revision>0.1-SNAPSHOT</revision>
+
+        <java.version>17</java.version>
+
+        <spring-boot-grpc-starter.version>2.14.0.RELEASE</spring-boot-grpc-starter.version>
+        <mysql.version>8.0.28</mysql.version>
+        <lombok.version>1.18.26</lombok.version>
     </properties>
+
+    <groupId>com.github.hrozhek</groupId>
+    <artifactId>signist-parent</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+    <name>Signaturist</name>
+    <description>parent pom</description>
 
     <dependencies>
         <dependency>

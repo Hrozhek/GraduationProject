@@ -15,19 +15,23 @@ import static com.github.hrozhek.signistserviceauth.model.Client.TABLE_NAME;
 public class Client {
 
     static final String TABLE_NAME = "client";
+    static final String ID = "id";
+    static final String TITLE = "title";
+    static final String LOGIN = "login";
+    static final String PASSWORD = "password";
 
     @Id
     @GeneratedValue
-    @Column(name = "id")
+    @Column(name = ID)
     private Long id;
 
-    @Column(name = "title")
+    @Column(name = TITLE)
     private String title;
 
-    @Column(name = "login")
+    @Column(name = LOGIN)
     private String login;
 
-    @Column(name = "password")
+    @Column(name = PASSWORD)
     private String password; //todo salty hash
 
 //    @Column(name = "company_id")

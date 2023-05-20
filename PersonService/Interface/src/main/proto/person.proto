@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package com.github.hrozhek.signist.service.person;
+
+service PersonService {
+
+  rpc GetPeople (google.protobuf.Empty) returns (ListOfPeople) {
+
+  }
+
+  rpc GetPerson (PersonId) returns (Person) {
+
+  }
+
+  rpc DeletePerson (PersonId) returns (Person) {
+
+  }
+
+  rpc registerPerson(PersonMessage) returns (Person) {
+
+  }
+
+  rpc UpdatePerson(Person) returns (Person) {
+
+  }
+}
+
+message PersonId {
+  int64 personId = 1;
+}
+
+message PersonMessage {
+//  reserved 4; - for empty fields
+}
+
+message Person {
+  PersonId personId = 1;
+  PersonMessage personMessage = 2;
+}
+
+message ListOfPeople {
+  repeated Person people = 1;
+}
