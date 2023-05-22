@@ -10,13 +10,9 @@
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>signist-service-auth-interface</artifactId>
-    <name>Auth Interface</name>
-    <description>Interface</description>
-
-    <properties>
-        <java.version>17</java.version>
-    </properties>
+    <artifactId>signist-ml-verificator-interface</artifactId>
+    <name>Verificator Interface</name>
+    <description>Verificator Interface</description>
 
     <dependencies>
         <dependency>
@@ -34,8 +30,8 @@
             <artifactId>protobuf-java</artifactId>
             <version>${protobuf.version}</version>
         </dependency>
+
         <dependency>
-            <!-- Java 9+ compatibility - Do NOT update to 2.0.0 -->
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
             <version>${jakarta-annotation.version}</version>

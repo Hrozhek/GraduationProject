@@ -32,11 +32,12 @@ message ModelId {
 }
 
 message ModelMetadata {
-
+//  int32 age = 1;
 }
 
 message ModelData {
 
+  bytes data = 1;
 }
 
 message Model {

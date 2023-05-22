@@ -7,18 +7,25 @@
         <groupId>com.github.hrozhek</groupId>
         <artifactId>signist-parent</artifactId>
         <version>${revision}</version>
-        <relativePath>../pom.xml</relativePath>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>signist-ml-spoofer-root</artifactId>
-    <name>Spoofer root</name>
-    <description>Spoofer root</description>
-    <packaging>pom</packaging>
+    <artifactId>signist-ml-signdetector-service</artifactId>
+    <name>Signature Service</name>
+    <description>Signature Service</description>
 
-    <modules>
-        <module>Interface</module>
-        <module>Service</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
