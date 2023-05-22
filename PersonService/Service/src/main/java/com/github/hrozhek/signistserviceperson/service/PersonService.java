@@ -1,16 +1,18 @@
 package com.github.hrozhek.signistserviceperson.service;
 
+import com.github.hrozhek.signistserviceperson.model.PersonEntity;
+
 import java.util.List;
 
 public interface PersonService {
 
-    List<Object> getPeople();
+    List<PersonEntity> getPeople();
 
-    Object getPerson(long personId);
+    PersonEntity getPerson(long personId);
 
-    Object deletePerson(long personId);
+    PersonEntity deletePerson(long personId);
 
-    Object register(Object person);
+    PersonEntity register(PersonEntity person);
 
-    Object update(long personId, Object person);
+    PersonEntity update(long personId, PersonEntity person); //todo dto here
 }

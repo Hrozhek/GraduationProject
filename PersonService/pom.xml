@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>signist-service-person-root</artifactId>
-    <name>PersonService Root</name>
+    <name>PersonService root</name>
     <description>PersonService root</description>
     <packaging>pom</packaging>
 

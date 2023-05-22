@@ -1,10 +1,12 @@
 package com.github.hrozhek.signistserviceperson.service;
 
+import com.github.hrozhek.signistserviceperson.model.ModelEntity;
+
 public interface ModelService {
 
-    Object getPersonModel(long personId);
+    ModelEntity getPersonModel(long personId);
 
-    Object addModel(long personId);
+    ModelEntity addModel(long personId);
 
-    Object deleteModel(long personId);
+    ModelEntity deleteModel(long personId);
 }

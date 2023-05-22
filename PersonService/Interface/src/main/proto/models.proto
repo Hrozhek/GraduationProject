@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+import "person.proto";
+
+package com.github.hrozhek.signist.service.person;
+
+service ModelService {
+
+  rpc getModel (PersonId) returns (Model) {
+
+  }
+
+  rpc addModel(ModelAddRequest) returns (Model) {
+
+  }
+
+  rpc registerModel(ModelRegisterRequest) returns (Model) {
+
+  }
+
+  rpc updateModel(ModelUpdateRequest) returns (Model) {
+
+  }
+
+  rpc deleteModel(ModelId) returns (Model) {
+
+  }
+}
+
+message ModelId {
+  int64 modelId = 1;
+}
+
+message ModelMetadata {
+
+}
+
+message ModelData {
+
+}
+
+message Model {
+  ModelId modelId = 1;
+  ModelMetadata modelMetadata = 2;
+  optional ModelData modelData = 3;
+}
+
+message ModelAddRequest {
+  PersonId personId = 1;
+  ModelMetadata modelMetadata = 2;
+}
+
+message ModelRegisterRequest {
+  ModelId modelId = 1;
+  ModelData modelData = 2;
+}
+
+message ModelUpdateRequest {
+  ModelId modelId = 1;
+  ModelMetadata modelMetadata = 2;
+}

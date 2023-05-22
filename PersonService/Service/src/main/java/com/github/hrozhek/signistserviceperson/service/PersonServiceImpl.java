@@ -1,5 +1,6 @@
 package com.github.hrozhek.signistserviceperson.service;
 
+import com.github.hrozhek.signistserviceperson.model.PersonEntity;
 import com.github.hrozhek.signistserviceperson.repo.PersonRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,32 +16,34 @@ public class PersonServiceImpl implements PersonService {
     //todo если нужно смаппить, маппим здесь скорее всего
 
     @Override
-    public List<Object> getPeople() {
+    public List<PersonEntity> getPeople() {
         return null;
 //        return repo.findAll(); //todo paging and where to map them
     }
 
     @Override
-    public Object getPerson(long personId) {
+    public PersonEntity getPerson(long personId) {
         return null;
     }
 
     //todo byName, byDoc etc...
 
     @Override
-    public Object deletePerson(long personId) {
+    public PersonEntity deletePerson(long personId) {
         return null;
     }
 
     @Override
-    public Object register(Object person) {
+    public PersonEntity register(PersonEntity person) {
         return null;
 //                repo.save(person);
     }
 
     @Override
-    public Object update(long personId, Object person) {
-        return null;
-//                repo.save(person);
+    public PersonEntity update(long personId, PersonEntity person) {
+        //todo check person before update
+        PersonEntity updated = repo.findById(personId).orElseThrow(RuntimeException::new);//todo
+        //todo update
+        return repo.save(updated);
     }
 }

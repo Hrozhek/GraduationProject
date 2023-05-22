@@ -1,7 +1,7 @@
 package com.github.hrozhek.signistserviceperson.repo;
 
-import com.github.hrozhek.signistserviceperson.model.Person;
+import com.github.hrozhek.signistserviceperson.model.PersonEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PersonRepo extends JpaRepository<Person, Long> {
+public interface PersonRepo extends JpaRepository<PersonEntity, Long> {
 }

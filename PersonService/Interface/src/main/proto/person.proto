@@ -32,7 +32,11 @@ message PersonId {
 }
 
 message PersonMessage {
-//  reserved 4; - for empty fields
+  string name = 1;
+  int64 docNumber = 2;
+  bool pdAgreement = 3;
+  reserved 4;
+  reserved 5;
 }
 
 message Person {

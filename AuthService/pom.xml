@@ -5,50 +5,20 @@
     <parent>
         <groupId>com.github.hrozhek</groupId>
         <artifactId>signist-parent</artifactId>
-        <version>0.1-SNAPSHOT</version>
-        <!--        <version>${project.version}</version>-->
-        <relativePath/> <!-- lookup parent from repository -->
+        <version>${revision}</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.github.hrozhek</groupId>
-    <artifactId>signist-service-auth</artifactId>
-    <version>${project.version}</version>
-    <name>AuthService</name>
-    <description>AuthService</description>
+    <artifactId>signist-service-auth-root</artifactId>
+    <name>AuthService root</name>
+    <description>AuthService root</description>
+    <packaging>pom</packaging>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>net.devh</groupId>
-            <artifactId>grpc-spring-boot-starter</artifactId>
-            <version>${spring-boot-grpc-starter.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-    </dependencies>
+    <modules>
+        <module>Data</module>
+        <module>Interface</module>
+        <module>Service</module>
+    </modules>
 
     <build>
         <plugins>

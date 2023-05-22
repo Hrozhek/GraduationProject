@@ -1,5 +1,6 @@
 package com.github.hrozhek.signistserviceperson.service;
 
+import com.github.hrozhek.signistserviceperson.model.ModelEntity;
 import com.github.hrozhek.signistserviceperson.repo.ModelRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,17 +12,17 @@ public class ModelServiceImpl implements ModelService {
     private final ModelRepo repo;
 
     @Override
-    public Object getPersonModel(long personId) {
+    public ModelEntity getPersonModel(long personId) {
         return null;
     }
 
     @Override
-    public Object addModel(long personId) {
+    public ModelEntity addModel(long personId) {
         return null;
     }
 
     @Override
-    public Object deleteModel(long personId) {
+    public ModelEntity deleteModel(long personId) {
         return null;
     }
 }
