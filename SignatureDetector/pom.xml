@@ -12,7 +12,7 @@
 
     <artifactId>signist-ml-signdetector-root</artifactId>
     <name>SignatureDetector root</name>
-    <description>Detector root</description>
+    <description>SignatureDetector root</description>
     <packaging>pom</packaging>
 
     <modules>

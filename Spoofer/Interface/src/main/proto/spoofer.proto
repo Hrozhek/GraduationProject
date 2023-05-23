@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.github.hrozhek.signist.ml.spoofer;
+
+service SpooferService {
+
+  rpc check (Image) returns (SpoofingResult) {
+
+  }
+}
+
+message Image {
+  bytes data = 1;
+}
+
+message SpoofingResult {
+  Status status = 1;
+
+  enum Status {
+    SUCCESS = 0;
+    FAILURE = 1;
+  }
+  //todo oneof
+}

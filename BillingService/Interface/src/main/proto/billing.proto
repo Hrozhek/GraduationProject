@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package com.github.hrozhek.signist.service.billing;
+
+service BillingService {
+
+  rpc writeTransaction (Request) returns (google.protobuf.Empty) {
+
+  }
+}
+
+message Request {
+  int64 userId = 1;
+  int64 modelId = 2;
+  Action action = 3;
+  Status status = 4;
+}
+
+enum Action {
+  ACCESS = 0;
+  CREATE = 1;
+  MODIFY = 2;
+  DELETE = 3;
+}
+
+enum Status {
+  SUCCESS = 0;
+  FAILURE = 1;
+}
+
+//message Response {
+//todo - ok/error
+//}

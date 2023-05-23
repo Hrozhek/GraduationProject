@@ -19,7 +19,7 @@ public class ModelEntity { //TODO - metainfo at least at the beginning
 
     @Id
     @GeneratedValue
-    @Column(name = "id")
+    @Column(name = ID)
     private Long id;
 
     @JoinColumn

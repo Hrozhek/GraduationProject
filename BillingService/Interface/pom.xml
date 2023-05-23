@@ -37,6 +37,7 @@
             <version>${jakarta-annotation.version}</version>
             <optional>true</optional>
         </dependency>
+
     </dependencies>
 
     <build>

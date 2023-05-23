@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package com.github.hrozhek.signist.ml.verificator;
+
+service VerificatorService {
+
+  rpc reserve(ModelData) returns (google.protobuf.Empty) {
+
+  }
+
+  rpc register(Image) returns (ModelData) {
+
+  }
+
+  rpc verify (Image) returns (VerificationResult) {
+
+  }
+  rpc free(ModelData) returns (google.protobuf.Empty) {
+
+  }
+}
+
+message ModelData {
+  int64 modelId = 1;
+}
+
+message Image {
+  bytes data = 1;
+}
+
+message VerificationResult {
+  Status status = 1;
+
+  enum Status {
+    SUCCESS = 0;
+    FAILURE = 1;
+  }
+  //todo oneof
+}
