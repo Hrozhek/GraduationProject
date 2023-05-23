@@ -24,9 +24,9 @@ public class VerificationControllerImpl implements VerificationController {
     @Override
     @PostMapping("/verify")
     public ResponseEntity<Boolean> verify(VerificationRequest signature) {
+        //todo
         /*
-        todo
-                try {
+          try {
             ref = notEmpty(request.getReference().getBase64Image());
             presented = notEmpty(request.getPresented().getBase64Image());
         } catch (Exception e) {

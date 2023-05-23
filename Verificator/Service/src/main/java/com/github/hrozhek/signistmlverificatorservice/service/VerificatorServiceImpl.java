@@ -44,11 +44,11 @@ public class VerificatorServiceImpl implements VerificatorService {
 
     @Override
     public void reserve(long modelId) {
-
+        //todo
     }
 
     @Override
     public void free(long modelId) {
-
+        //todo
     }
 }
