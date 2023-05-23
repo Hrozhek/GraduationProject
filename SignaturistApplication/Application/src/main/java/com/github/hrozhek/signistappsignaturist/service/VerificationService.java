@@ -4,5 +4,5 @@ import com.github.hrozhek.signistappsignaturist.dto.VerificationRequest;
 
 public interface VerificationService {
 
-    Object verifyPerson(VerificationRequest request);
+    boolean verifyPerson(VerificationRequest request);
 }

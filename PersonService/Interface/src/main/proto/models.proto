@@ -14,10 +14,6 @@ service ModelService {
 
   }
 
-  rpc registerModel(ModelRegisterRequest) returns (Model) {
-
-  }
-
   rpc updateModel(ModelUpdateRequest) returns (Model) {
 
   }
@@ -37,24 +33,24 @@ message ModelMetadata {
 
 message ModelData {
 
-  bytes data = 1;
+  bool containsData = 1;
+//  bytes data = 1; //todo
 }
 
 message Model {
   ModelId modelId = 1;
-  ModelMetadata modelMetadata = 2;
-  optional ModelData modelData = 3;
+  int64 personId = 2;
+  reserved 3;
+//  ModelMetadata modelMetadata = 3;
+  optional ModelData modelData = 4;
 }
 
 message ModelAddRequest {
   PersonId personId = 1;
-  ModelMetadata modelMetadata = 2;
+  reserved 2;
+//  ModelMetadata modelMetadata = 2;
 }
 
-message ModelRegisterRequest {
-  ModelId modelId = 1;
-  ModelData modelData = 2;
-}
 
 message ModelUpdateRequest {
   ModelId modelId = 1;

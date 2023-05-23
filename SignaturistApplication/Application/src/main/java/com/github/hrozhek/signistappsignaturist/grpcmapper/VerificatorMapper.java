@@ -8,9 +8,14 @@ import static com.github.hrozhek.signistappsignaturist.util.ByteUtils.convertIma
 
 public class VerificatorMapper {
 
-    public static Verificator.Image mapRequest(ImageRequest request) {
-        return Verificator.Image.newBuilder()
-                .setData(convertImage(request.getBase64Image()))
+    public static Verificator.ModelMessage mapRequest(long modelId, ImageRequest request) {
+        return Verificator.ModelMessage.newBuilder()
+                .setImage(Verificator.Image.newBuilder()
+                        .setData(convertImage(request.getBase64Image()))
+                        .build())
+                .setModelData(Verificator.ModelData.newBuilder()
+                        .setModelId(modelId)
+                        .build())
                 .build();
     }
 

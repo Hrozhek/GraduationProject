@@ -10,11 +10,11 @@ service VerificatorService {
 
   }
 
-  rpc register(Image) returns (ModelData) {
+  rpc register(ModelMessage) returns (ModelData) {
 
   }
 
-  rpc verify (Image) returns (VerificationResult) {
+  rpc verify (ModelMessage) returns (VerificationResult) {
 
   }
   rpc free(ModelData) returns (google.protobuf.Empty) {
@@ -28,6 +28,11 @@ message ModelData {
 
 message Image {
   bytes data = 1;
+}
+
+message ModelMessage {
+  ModelData modelData = 1;
+  Image image = 2;
 }
 
 message VerificationResult {

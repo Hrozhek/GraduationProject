@@ -13,7 +13,7 @@ public class ModelServiceImpl implements ModelService {
 
     @Override
     public ModelEntity getPersonModel(long personId) {
-        return null;
+        return repo.findByPersonId(personId);
     }
 
     @Override
@@ -22,7 +22,7 @@ public class ModelServiceImpl implements ModelService {
     }
 
     @Override
-    public ModelEntity deleteModel(long personId) {
+    public ModelEntity deleteModel(long modelId) {
         return null;
     }
 }

@@ -20,6 +20,7 @@
     </properties>
 
     <modules>
+        <module>Data</module>
         <module>Interface</module>
         <module>Service</module>
     </modules>
