@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 
 import static com.github.hrozhek.signistappsignaturist.grpcmapper.PersonMapper.mapPersonId;
 
-@Service
+//@Service //defined in config
 @RequiredArgsConstructor
 public class VerificationServiceImpl implements VerificationService {
 

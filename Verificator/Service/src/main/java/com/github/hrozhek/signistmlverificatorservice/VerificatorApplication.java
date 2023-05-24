@@ -1,13 +1,13 @@
-package com.github.hrozhek.signistmlspooferservice;
+package com.github.hrozhek.signistmlverificatorservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ServiceApplication {
+public class VerificatorApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ServiceApplication.class, args);
+        SpringApplication.run(VerificatorApplication.class, args);
     }
 
 }

@@ -1,13 +1,13 @@
-package com.github.hrozhek.signistmlsigndetectorservice;
+package com.github.hrozhek.signistmlspooferservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ServiceApplication {
+public class SpooferApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ServiceApplication.class, args);
+        SpringApplication.run(SpooferApplication.class, args);
     }
 
 }

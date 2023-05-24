@@ -20,19 +20,19 @@ public class ModelControllerImpl implements ModelController {
     }
 
     @Override
-    @GetMapping(path = "/${personId}")
+    @GetMapping(path = "/{personId}")
     public ResponseEntity<ModelResponse> getModel(@PathVariable long personId) {
         return ResponseEntity.ok(service.getModel(personId));
     }
 
     @Override
-    @PostMapping(path = "/${personId}")
+    @PostMapping(path = "/{personId}")
     public ResponseEntity<ModelResponse> addModel(@PathVariable long personId) {
         return ResponseEntity.ok(service.addModel(personId));
     }
 
     @Override
-    @DeleteMapping(path = "/${id}")
+    @DeleteMapping(path = "/{id}")
     public ResponseEntity deleteModel(@PathVariable long id) {
         service.deleteModel(id);
         return ResponseEntity.noContent().build();

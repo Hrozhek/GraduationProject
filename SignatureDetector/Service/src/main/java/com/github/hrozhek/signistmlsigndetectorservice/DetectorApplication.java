@@ -1,13 +1,13 @@
-package com.github.hrozhek.signistservicebilling;
+package com.github.hrozhek.signistmlsigndetectorservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ServiceApplication {
+public class DetectorApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ServiceApplication.class, args);
+        SpringApplication.run(DetectorApplication.class, args);
     }
 
 }

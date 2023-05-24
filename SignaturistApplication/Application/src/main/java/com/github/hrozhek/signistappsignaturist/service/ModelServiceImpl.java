@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 import static com.github.hrozhek.signistappsignaturist.util.ByteUtils.convertImage;
 
-@Service
+//@Service //defined in config
 @RequiredArgsConstructor
 public class ModelServiceImpl implements ModelService {
 

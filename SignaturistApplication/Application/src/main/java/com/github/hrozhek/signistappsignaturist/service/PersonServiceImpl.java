@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+//@Service //defined in config
 @RequiredArgsConstructor
 public class PersonServiceImpl implements PersonService {
 
