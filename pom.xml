@@ -34,7 +34,7 @@
     <artifactId>signist-parent</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
-    <name>Signaturist</name>
+    <name>Signaturist parent</name>
     <description>parent pom</description>
 
     <dependencies>
@@ -72,26 +72,5 @@
 <!--        </dependency>-->
     </dependencies>
 
-<!--    <build>-->
-<!--        <plugins>-->
-<!--            <plugin>-->
-<!--                <groupId>org.springframework.boot</groupId>-->
-<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--            </plugin>-->
-<!--            <plugin>-->
-<!--                <groupId>org.springdoc</groupId>-->
-<!--                <artifactId>springdoc-openapi-maven-plugin</artifactId>-->
-<!--                <version>0.2</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <phase>integration-test</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>generate</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
-<!--    </build>-->
 
 </project>
