@@ -1,6 +1,6 @@
 package com.github.hrozhek.signistserviceauth.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

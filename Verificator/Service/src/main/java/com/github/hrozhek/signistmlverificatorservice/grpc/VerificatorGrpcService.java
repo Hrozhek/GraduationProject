@@ -2,8 +2,8 @@ package com.github.hrozhek.signistmlverificatorservice.grpc;
 
 import com.github.hrozhek.signist.ml.verificator.Verificator;
 import com.github.hrozhek.signist.ml.verificator.VerificatorServiceGrpc;
+import com.github.hrozhek.signistmlverificatorservice.model.ModelEntity;
 import com.github.hrozhek.signistmlverificatorservice.service.VerificatorService;
-import com.github.hrozhek.signistservicepersondata.model.ModelEntity;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.Empty;
 import io.grpc.stub.StreamObserver;

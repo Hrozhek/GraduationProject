@@ -5,23 +5,21 @@ import com.github.hrozhek.signist.ml.verificator.VerificatorServiceGrpc;
 import com.github.hrozhek.signist.service.person.ModelServiceGrpc;
 import com.github.hrozhek.signist.service.person.Models;
 import com.github.hrozhek.signist.service.person.PersonOuterClass;
-import com.github.hrozhek.signist.service.person.PersonServiceGrpc;
 import com.github.hrozhek.signistappsignaturist.dto.ModelResponse;
 import com.github.hrozhek.signistappsignaturist.dto.RegisterModelRequest;
 import com.github.hrozhek.signistappsignaturist.grpcmapper.ModelMapper;
-import net.devh.boot.grpc.client.inject.GrpcClient;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import static com.github.hrozhek.signistappsignaturist.util.ByteUtils.convertImage;
 
 @Service
+@RequiredArgsConstructor
 public class ModelServiceImpl implements ModelService {
 
-    @GrpcClient("verificator")
-    private VerificatorServiceGrpc.VerificatorServiceBlockingStub verificatorClient;
+    private final VerificatorServiceGrpc.VerificatorServiceBlockingStub verificatorClient;
 
-    @GrpcClient("model")
-    private ModelServiceGrpc.ModelServiceBlockingStub modelClient;
+    private final ModelServiceGrpc.ModelServiceBlockingStub modelClient;
 
     @Override
     public ModelResponse getModel(long personId) {

@@ -6,18 +6,19 @@ import com.github.hrozhek.signistappsignaturist.dto.AddPersonRequest;
 import com.github.hrozhek.signistappsignaturist.dto.PersonResponse;
 import com.github.hrozhek.signistappsignaturist.grpcmapper.PersonMapper;
 import com.google.protobuf.Empty;
+import lombok.RequiredArgsConstructor;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class PersonServiceImpl implements PersonService {
 
     private static final Empty EMPTY = Empty.newBuilder().build();
 
-    @GrpcClient("person")
-    private PersonServiceGrpc.PersonServiceBlockingStub client;
+    private final PersonServiceGrpc.PersonServiceBlockingStub client;
 
     @Override
     public List<PersonResponse> getAll() {

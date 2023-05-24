@@ -1,9 +1,9 @@
 package com.github.hrozhek.signistmlverificatorservice.service;
 
 import com.github.hrozhek.signistmlverificatorservice.mock.DecisionMaker;
+import com.github.hrozhek.signistmlverificatorservice.model.ModelEntity;
 import com.github.hrozhek.signistmlverificatorservice.repo.ModelRepo;
 import com.github.hrozhek.signistmlverificatorservice.storage.ModelStorage;
-import com.github.hrozhek.signistservicepersondata.model.ModelEntity;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

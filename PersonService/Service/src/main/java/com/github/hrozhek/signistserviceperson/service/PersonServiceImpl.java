@@ -1,6 +1,6 @@
 package com.github.hrozhek.signistserviceperson.service;
 
-import com.github.hrozhek.signistservicepersondata.model.PersonEntity;
+import com.github.hrozhek.signistserviceperson.model.PersonEntity;
 import com.github.hrozhek.signistserviceperson.repo.PersonRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -2,8 +2,8 @@ package com.github.hrozhek.signistserviceperson.grpc;
 
 import com.github.hrozhek.signist.service.person.PersonOuterClass.*;
 import com.github.hrozhek.signist.service.person.PersonServiceGrpc.*;
+import com.github.hrozhek.signistserviceperson.model.PersonEntity;
 import com.github.hrozhek.signistserviceperson.service.PersonService;
-import com.github.hrozhek.signistservicepersondata.model.PersonEntity;
 import com.google.protobuf.Empty;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;

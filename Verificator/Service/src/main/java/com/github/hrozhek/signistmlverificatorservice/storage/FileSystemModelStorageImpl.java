@@ -1,6 +1,7 @@
 package com.github.hrozhek.signistmlverificatorservice.storage;
 
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -12,6 +13,7 @@ import java.nio.file.Paths;
 import java.util.UUID;
 
 @Component
+@Slf4j
 public class FileSystemModelStorageImpl implements ModelStorage {
 
     @Value("${user.path}")
@@ -24,7 +26,9 @@ public class FileSystemModelStorageImpl implements ModelStorage {
         String fullPath = rootPath + pathToSave;
         Path file = Paths.get(fullPath);
         if (Files.isRegularFile(file)) {
-            throw new RuntimeException(String.format("file %s already exists", pathToSave));//todo 500
+            String message = String.format("file %s already exists", pathToSave);
+            log.atError().log(message);
+            throw new RuntimeException(message);//todo 500
         }
         Files.createFile(file);
         ImageIO.write(image, "png", file.toFile());
@@ -37,7 +41,9 @@ public class FileSystemModelStorageImpl implements ModelStorage {
         String fullPath = rootPath + path;
         Path file = Paths.get(fullPath);
         if (!Files.isRegularFile(file)) {
-            throw new RuntimeException(String.format("file %s not found", path));//todo 500
+            String message = String.format("file %s not found", path);
+            log.atError().log(message);
+            throw new RuntimeException(message);//todo 500
         }
         return ImageIO.read(file.toFile());
     }

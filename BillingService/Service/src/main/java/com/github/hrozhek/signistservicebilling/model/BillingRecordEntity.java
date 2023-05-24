@@ -1,6 +1,6 @@
 package com.github.hrozhek.signistservicebilling.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

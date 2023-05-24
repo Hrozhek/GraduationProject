@@ -14,31 +14,26 @@ import com.github.hrozhek.signistappsignaturist.grpcmapper.BillingMapper;
 import com.github.hrozhek.signistappsignaturist.grpcmapper.DetectorMapper;
 import com.github.hrozhek.signistappsignaturist.grpcmapper.SpooferRequestMapper;
 import com.github.hrozhek.signistappsignaturist.grpcmapper.VerificatorMapper;
-import net.devh.boot.grpc.client.inject.GrpcClient;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import static com.github.hrozhek.signistappsignaturist.grpcmapper.PersonMapper.mapPersonId;
 
 @Service
+@RequiredArgsConstructor
 public class VerificationServiceImpl implements VerificationService {
 
-    @GrpcClient("spoofer")
-    private SpooferServiceGrpc.SpooferServiceBlockingStub spooferClient;
+    private final SpooferServiceGrpc.SpooferServiceBlockingStub spooferClient;
 
-    @GrpcClient("detector")
-    private DetectorServiceGrpc.DetectorServiceBlockingStub detectorClient;
+    private final DetectorServiceGrpc.DetectorServiceBlockingStub detectorClient;
 
-    @GrpcClient("verificator")
-    private VerificatorServiceGrpc.VerificatorServiceBlockingStub verificatorClient;
+    private final VerificatorServiceGrpc.VerificatorServiceBlockingStub verificatorClient;
 
-    @GrpcClient("person")
-    private PersonServiceGrpc.PersonServiceBlockingStub personClient;
+    private final PersonServiceGrpc.PersonServiceBlockingStub personClient;
 
-    @GrpcClient("model")
-    private ModelServiceGrpc.ModelServiceBlockingStub modelClient;
+    private final ModelServiceGrpc.ModelServiceBlockingStub modelClient;
 
-    @GrpcClient("billing")
-    private BillingServiceGrpc.BillingServiceBlockingStub billingClient;
+    private final BillingServiceGrpc.BillingServiceBlockingStub billingClient;
 
     @Override
     public boolean verifyPerson(VerificationRequest request) {
