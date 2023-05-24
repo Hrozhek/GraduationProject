@@ -11,8 +11,8 @@
     </parent>
 
     <artifactId>signist-ml-signdetector-root</artifactId>
-    <name>SignatureDetector root</name>
-    <description>SignatureDetector root</description>
+    <name>Detector root</name>
+    <description>Detector root</description>
     <packaging>pom</packaging>
 
     <modules>

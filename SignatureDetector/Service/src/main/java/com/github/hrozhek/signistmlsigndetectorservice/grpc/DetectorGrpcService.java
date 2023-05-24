@@ -22,6 +22,8 @@ public class DetectorGrpcService extends DetectorServiceGrpc.DetectorServiceImpl
 //                status = Detector.DetectionResult.Status.FAILURE);
                 //todo return error
                 responseObserver.onError(new RuntimeException("detection failure")); //todo
+                counter = 0;
+                return;
             }
             counter = 0;
         }

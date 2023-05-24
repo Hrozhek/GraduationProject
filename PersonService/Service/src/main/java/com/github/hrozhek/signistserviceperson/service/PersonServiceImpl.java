@@ -3,40 +3,37 @@ package com.github.hrozhek.signistserviceperson.service;
 import com.github.hrozhek.signistservicepersondata.model.PersonEntity;
 import com.github.hrozhek.signistserviceperson.repo.PersonRepo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class PersonServiceImpl implements PersonService {
 
     private final PersonRepo repo;
 
-    //todo если нужно смаппить, маппим здесь скорее всего
-
     @Override
     public List<PersonEntity> getPeople() {
-        return null;
-//        return repo.findAll(); //todo paging and where to map them
+        return repo.findAll(); //todo paging and where to map them
     }
 
     @Override
     public PersonEntity getPerson(long personId) {
-        return null;
+        return repo.findById(personId).orElseThrow(IllegalArgumentException::new); //todo
     }
 
     //todo byName, byDoc etc...
 
     @Override
-    public PersonEntity deletePerson(long personId) {
-        return null;
+    public void deletePerson(long personId) {
+        repo.deleteById(personId);
     }
 
     @Override
     public PersonEntity register(PersonEntity person) {
-        return null;
-//                repo.save(person);
+        return repo.save(person); //todo
     }
 
     @Override

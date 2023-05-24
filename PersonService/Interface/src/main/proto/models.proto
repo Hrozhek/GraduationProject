@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 import "person.proto";
+import "google/protobuf/empty.proto";
 
 package com.github.hrozhek.signist.service.person;
 
@@ -18,7 +19,7 @@ service ModelService {
 
   }
 
-  rpc deleteModel(ModelId) returns (Model) {
+  rpc deleteModel(ModelId) returns (google.protobuf.Empty) {
 
   }
 }
@@ -31,18 +32,12 @@ message ModelMetadata {
 //  int32 age = 1;
 }
 
-message ModelData {
-
-  bool containsData = 1;
-//  bytes data = 1; //todo
-}
-
 message Model {
   ModelId modelId = 1;
   int64 personId = 2;
   reserved 3;
 //  ModelMetadata modelMetadata = 3;
-  optional ModelData modelData = 4;
+  optional string modelData = 4;
 }
 
 message ModelAddRequest {

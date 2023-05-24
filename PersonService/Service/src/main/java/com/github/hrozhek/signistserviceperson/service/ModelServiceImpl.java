@@ -1,12 +1,13 @@
 package com.github.hrozhek.signistserviceperson.service;
 
-import com.github.hrozhek.signistserviceperson.model.ModelEntity;
+import com.github.hrozhek.signistservicepersondata.model.ModelEntity;
 import com.github.hrozhek.signistserviceperson.repo.ModelRepo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class ModelServiceImpl implements ModelService {
 
     private final ModelRepo repo;
@@ -18,11 +19,13 @@ public class ModelServiceImpl implements ModelService {
 
     @Override
     public ModelEntity addModel(long personId) {
-        return null;
+        ModelEntity model = new ModelEntity();
+        model.setPersonId(personId);
+        return repo.save(model);
     }
 
     @Override
-    public ModelEntity deleteModel(long modelId) {
-        return null;
+    public void deleteModel(long modelId) {
+        repo.deleteById(modelId);
     }
 }

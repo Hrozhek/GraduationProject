@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/verification", consumes = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "api/v1/verification", consumes = MediaType.APPLICATION_JSON_VALUE)
 public class VerificationControllerImpl implements VerificationController {
 
     private final VerificationService service;

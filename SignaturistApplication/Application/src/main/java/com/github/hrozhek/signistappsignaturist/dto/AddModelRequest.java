@@ -1,6 +1,6 @@
-package com.github.hrozhek.signistappsignaturist.dto;
-import lombok.Data;
-
-@Data
-public class AddModelRequest {
-}
+//package com.github.hrozhek.signistappsignaturist.dto;
+//import lombok.Data;
+//
+//@Data
+//public class AddModelRequest {
+//}

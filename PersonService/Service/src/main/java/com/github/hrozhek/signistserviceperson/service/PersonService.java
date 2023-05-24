@@ -10,7 +10,7 @@ public interface PersonService {
 
     PersonEntity getPerson(long personId);
 
-    PersonEntity deletePerson(long personId);
+    void deletePerson(long personId);
 
     PersonEntity register(PersonEntity person);
 

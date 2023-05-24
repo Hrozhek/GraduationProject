@@ -1,6 +1,6 @@
 package com.github.hrozhek.signistserviceperson.service;
 
-import com.github.hrozhek.signistserviceperson.model.ModelEntity;
+import com.github.hrozhek.signistservicepersondata.model.ModelEntity;
 
 public interface ModelService {
 
@@ -8,5 +8,5 @@ public interface ModelService {
 
     ModelEntity addModel(long personId);
 
-    ModelEntity deleteModel(long personId);
+    void deleteModel(long modelId);
 }

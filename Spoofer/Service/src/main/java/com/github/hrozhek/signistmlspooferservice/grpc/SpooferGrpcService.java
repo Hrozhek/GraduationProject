@@ -22,6 +22,8 @@ public class SpooferGrpcService extends SpooferServiceGrpc.SpooferServiceImplBas
 //                status = Detector.DetectionResult.Status.FAILURE);
                 //todo return error
                 responseObserver.onError(new RuntimeException("spoofing failure")); //todo
+                counter = 0;
+                return;
             }
             counter = 0;
         }

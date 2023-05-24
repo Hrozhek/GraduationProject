@@ -8,9 +8,10 @@ import com.google.protobuf.Empty;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
 import net.devh.boot.grpc.server.service.GrpcService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @GrpcService
-@RequiredArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class PersonGrpcService extends PersonServiceImplBase {
 
     private final PersonService service;
@@ -21,36 +22,48 @@ public class PersonGrpcService extends PersonServiceImplBase {
             ListOfPeople response = ListOfPeople.newBuilder()
                     .addAllPeople(service.getPeople().stream().map(this::mapPerson).toList())
                     .build();
-            //todo example
-//            HelloReply reply = HelloReply.newBuilder()
-//                    .setMessage("Hello ==> " + request.getName())
-//                    .build();
             responseObserver.onNext(response);
+            responseObserver.onCompleted();
         } catch (Exception e) {
             responseObserver.onError(e);
-        } finally {
-            responseObserver.onCompleted();
         }
     }
 
     @Override
     public void getPerson(PersonId request, StreamObserver<Person> responseObserver) {
-        PersonEntity person = service.getPerson(request.getPersonId());//todo
-//        Person response = Person.newBuilder()
-//                .setPersonId(PersonId.newBuilder().setPersonId(person.getId()))
-//                        .setPersonMessage(PersonMessage.newBuilder()
-//                                .setField())
-        super.getPerson(request, responseObserver);
+        try {
+            PersonEntity person = service.getPerson(request.getPersonId());//todo
+
+            Person response = mapPerson(person);
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+        } catch (Exception e) {
+            responseObserver.onError(e);
+        }
     }
 
     @Override
-    public void deletePerson(PersonId request, StreamObserver<Person> responseObserver) {
-        super.deletePerson(request, responseObserver);
+    public void deletePerson(PersonId request, StreamObserver<Empty> responseObserver) {
+        try {
+            service.deletePerson(request.getPersonId());
+            responseObserver.onCompleted();
+        } catch (Exception e) {
+            responseObserver.onError(e);
+        }
     }
 
     @Override
     public void registerPerson(PersonMessage request, StreamObserver<Person> responseObserver) {
-        super.registerPerson(request, responseObserver);
+        try {
+            PersonEntity entity = new PersonEntity();
+            entity.setName(request.getName());
+            entity.setDocNumber(request.getDocNumber());
+            entity.setPdAgreement(request.getPdAgreement());
+            service.register(entity);
+            responseObserver.onCompleted();
+        } catch (Exception e) {
+            responseObserver.onError(e);
+        }
     }
 
     @Override
@@ -64,7 +77,9 @@ public class PersonGrpcService extends PersonServiceImplBase {
                         .setPersonId(person.getId())
                         .build())
                 .setPersonMessage(PersonMessage.newBuilder()
-                        //set fields)
+                        .setName(person.getName())
+                        .setDocNumber(person.getDocNumber())
+                        .setPdAgreement(person.isPdAgreement())
                         .build())
                 .build();
     }

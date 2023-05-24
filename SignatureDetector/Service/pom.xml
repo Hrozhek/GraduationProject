@@ -11,8 +11,8 @@
     </parent>
 
     <artifactId>signist-ml-signdetector-service</artifactId>
-    <name>Signature Service</name>
-    <description>Signature Service</description>
+    <name>Detector Service</name>
+    <description>Detector Service</description>
 
     <dependencies>
         <!--        <dependency>-->

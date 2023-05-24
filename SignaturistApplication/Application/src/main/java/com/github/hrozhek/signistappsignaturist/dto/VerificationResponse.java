@@ -1,7 +1,9 @@
-package com.github.hrozhek.signistappsignaturist.dto;
-
-import lombok.Data;
-
-@Data
-public class VerificationResponse {
-}
+//package com.github.hrozhek.signistappsignaturist.dto;
+//
+//import lombok.Data;
+//
+//@Data
+//public class VerificationResponse {
+//
+//    private boolean result;
+//}

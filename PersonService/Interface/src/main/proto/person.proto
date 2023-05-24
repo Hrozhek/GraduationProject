@@ -14,7 +14,7 @@ service PersonService {
 
   }
 
-  rpc DeletePerson (PersonId) returns (Person) {
+  rpc DeletePerson (PersonId) returns (google.protobuf.Empty) {
 
   }
 
