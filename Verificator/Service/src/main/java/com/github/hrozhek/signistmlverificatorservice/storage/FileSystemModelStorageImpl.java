@@ -27,7 +27,7 @@ public class FileSystemModelStorageImpl implements ModelStorage {
         Path file = Paths.get(fullPath);
         if (Files.isRegularFile(file)) {
             String message = String.format("file %s already exists", pathToSave);
-            log.atError().log(message);
+            log.error(message);
             throw new RuntimeException(message);//todo 500
         }
         Files.createFile(file);
@@ -42,7 +42,7 @@ public class FileSystemModelStorageImpl implements ModelStorage {
         Path file = Paths.get(fullPath);
         if (!Files.isRegularFile(file)) {
             String message = String.format("file %s not found", path);
-            log.atError().log(message);
+            log.error(message);
             throw new RuntimeException(message);//todo 500
         }
         return ImageIO.read(file.toFile());
