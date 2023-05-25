@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -23,7 +24,7 @@ public class FileSystemModelStorageImpl implements ModelStorage {
     @SneakyThrows
     public String save(BufferedImage image) {
         String pathToSave = UUID.randomUUID() + ".png";
-        String fullPath = rootPath + pathToSave;
+        String fullPath = rootPath + File.separator + pathToSave;
         Path file = Paths.get(fullPath);
         if (Files.isRegularFile(file)) {
             String message = String.format("file %s already exists", pathToSave);
@@ -38,7 +39,7 @@ public class FileSystemModelStorageImpl implements ModelStorage {
     @Override
     @SneakyThrows
     public BufferedImage load(String path) {
-        String fullPath = rootPath + path;
+        String fullPath = rootPath + File.separator + path;
         Path file = Paths.get(fullPath);
         if (!Files.isRegularFile(file)) {
             String message = String.format("file %s not found", path);
