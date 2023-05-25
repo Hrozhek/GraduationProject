@@ -7,9 +7,11 @@ import com.github.hrozhek.signistmlverificatorservice.storage.ModelStorage;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.awt.image.BufferedImage;
 
+@Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class VerificatorServiceImpl implements VerificatorService {
 
