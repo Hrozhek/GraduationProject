@@ -36,7 +36,7 @@ public class PersonControllerImpl implements PersonController {
 
     @Override
     @PostMapping
-    public ResponseEntity<PersonResponse> addPerson(AddPersonRequest person) {
+    public ResponseEntity<PersonResponse> addPerson(@RequestBody AddPersonRequest person) {
         return ResponseEntity.ok(service.addPerson(person));
     }
 

@@ -40,7 +40,7 @@ public class ModelControllerImpl implements ModelController {
 
     @Override
     @PostMapping(path = "/register")
-    public ResponseEntity<Long> registerModel(RegisterModelRequest request) {
+    public ResponseEntity<Long> registerModel(@RequestBody RegisterModelRequest request) {
         return ResponseEntity.ok(service.register(request));
     }
 }
