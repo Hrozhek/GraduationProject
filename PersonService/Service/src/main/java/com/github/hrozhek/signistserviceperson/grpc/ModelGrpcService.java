@@ -15,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class ModelGrpcService extends ModelServiceGrpc.ModelServiceImplBase {
 
+    private static final Empty EMPTY = Empty.newBuilder().getDefaultInstanceForType();
+
     private final ModelService service;
 
     @Override
@@ -29,11 +31,10 @@ public class ModelGrpcService extends ModelServiceGrpc.ModelServiceImplBase {
                 modelBuilder.setModelData(entity.getModelRef());
             }
             responseObserver.onNext(modelBuilder.build());
+            responseObserver.onCompleted();
         } catch (Exception e) {
             responseObserver.onError(e);
         }
-
-        super.getModel(request, responseObserver);
     }
 
     @Override
@@ -62,6 +63,7 @@ public class ModelGrpcService extends ModelServiceGrpc.ModelServiceImplBase {
     public void deleteModel(Models.ModelId request, StreamObserver<Empty> responseObserver) {
         try {
             service.deleteModel(request.getModelId());
+            responseObserver.onNext(EMPTY);
             responseObserver.onCompleted();
         } catch (Exception e) {
             responseObserver.onError(e);

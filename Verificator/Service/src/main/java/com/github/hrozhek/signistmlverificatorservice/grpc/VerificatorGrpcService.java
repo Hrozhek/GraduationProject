@@ -9,20 +9,25 @@ import com.google.protobuf.Empty;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
+import net.devh.boot.grpc.server.service.GrpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 
+@GrpcService
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class VerificatorGrpcService extends VerificatorServiceGrpc.VerificatorServiceImplBase {
+
+    private static final Empty EMPTY = Empty.newBuilder().getDefaultInstanceForType();
 
     private final VerificatorService service;
 
     @Override
     public void reserve(Verificator.ModelData request, StreamObserver<Empty> responseObserver) {
         service.reserve(request.getModelId());
+        responseObserver.onNext(EMPTY);
         responseObserver.onCompleted();
     }
 
@@ -59,6 +64,7 @@ public class VerificatorGrpcService extends VerificatorServiceGrpc.VerificatorSe
     @Override
     public void free(Verificator.ModelData request, StreamObserver<Empty> responseObserver) {
         service.free(request.getModelId());
+        responseObserver.onNext(EMPTY);
         responseObserver.onCompleted();
     }
 

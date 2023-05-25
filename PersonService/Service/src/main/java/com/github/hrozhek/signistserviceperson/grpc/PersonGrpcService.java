@@ -14,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class PersonGrpcService extends PersonServiceImplBase {
 
+    private static final Empty EMPTY = Empty.newBuilder().getDefaultInstanceForType();
+
     private final PersonService service;
 
     @Override
@@ -46,6 +48,7 @@ public class PersonGrpcService extends PersonServiceImplBase {
     public void deletePerson(PersonId request, StreamObserver<Empty> responseObserver) {
         try {
             service.deletePerson(request.getPersonId());
+            responseObserver.onNext(EMPTY);
             responseObserver.onCompleted();
         } catch (Exception e) {
             responseObserver.onError(e);
@@ -60,6 +63,7 @@ public class PersonGrpcService extends PersonServiceImplBase {
             entity.setDocNumber(request.getDocNumber());
             entity.setPdAgreement(request.getPdAgreement());
             service.register(entity);
+            responseObserver.onNext(mapPerson(entity));
             responseObserver.onCompleted();
         } catch (Exception e) {
             responseObserver.onError(e);

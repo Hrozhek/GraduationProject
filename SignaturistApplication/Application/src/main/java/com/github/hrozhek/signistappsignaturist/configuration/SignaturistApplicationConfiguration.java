@@ -47,19 +47,22 @@ import org.springframework.context.annotation.Configuration;
 public class SignaturistApplicationConfiguration {
 
     @Bean
-    PersonService personService(@Autowired PersonServiceGrpc.PersonServiceBlockingStub client) {
+    @Autowired
+    PersonService personService(PersonServiceGrpc.PersonServiceBlockingStub client) {
         return new PersonServiceImpl(client);
     }
 
     @Bean
-    ModelService modelService(@Autowired ModelServiceGrpc.ModelServiceBlockingStub modelClient,
+    @Autowired
+    ModelService modelService(ModelServiceGrpc.ModelServiceBlockingStub modelClient,
                               VerificatorServiceGrpc.VerificatorServiceBlockingStub verificatorClient) {
         return new ModelServiceImpl(verificatorClient, modelClient);
     }
 
     @Bean
+    @Autowired
     VerificationService verificationService(
-            @Autowired SpooferServiceGrpc.SpooferServiceBlockingStub spooferClient,
+            SpooferServiceGrpc.SpooferServiceBlockingStub spooferClient,
             DetectorServiceGrpc.DetectorServiceBlockingStub detectorClient,
             VerificatorServiceGrpc.VerificatorServiceBlockingStub verificatorClient,
             PersonServiceGrpc.PersonServiceBlockingStub personClient,

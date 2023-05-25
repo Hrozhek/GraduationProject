@@ -16,6 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class BillingRecordGrpcService extends BillingServiceGrpc.BillingServiceImplBase {
 
+    private static final Empty EMPTY = Empty.newBuilder().getDefaultInstanceForType();
+
     private final BillingRecordService service;
 
     @Override
@@ -26,6 +28,7 @@ public class BillingRecordGrpcService extends BillingServiceGrpc.BillingServiceI
         entity.setAction(mapAction(request.getAction()));
         entity.setStatus(mapStatus(request.getStatus()));
         service.addRecord(entity);
+        responseObserver.onNext(EMPTY);
         responseObserver.onCompleted(); //todo error handling
     }
 
