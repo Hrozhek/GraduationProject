@@ -6,27 +6,25 @@ import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 
 import java.util.Random;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @GrpcService
 public class SpooferGrpcService extends SpooferServiceGrpc.SpooferServiceImplBase {
 
-    private static final Random random = new Random(42);
-    private int counter = 0;
+    private final AtomicInteger counter = new AtomicInteger();
 
     @Override
     public void check(Spoofer.Image request, StreamObserver<Spoofer.SpoofingResult> responseObserver) {
         var resultBuilder = Spoofer.SpoofingResult.newBuilder();
         var status = Spoofer.SpoofingResult.Status.SUCCESS;
-        if (counter == 5) {
-            if (random.nextBoolean()) {
+        if (counter.get() >= 5) {
 //                status = Detector.DetectionResult.Status.FAILURE);
-                //todo return error
-                responseObserver.onError(new RuntimeException("spoofing failure")); //todo
-                counter = 0;
-                return;
-            }
-            counter = 0;
+            //todo return error
+            counter.set(0);
+            responseObserver.onError(new RuntimeException("spoofing failure")); //todo
+            return;
         }
+        counter.getAndIncrement();
         var result = resultBuilder.setStatus(status).build();
         responseObserver.onNext(result);
         responseObserver.onCompleted();
